@@ -38,8 +38,8 @@ module.exports.runHeuristic = function (startDate, endDate, skillsSeparatedByCom
 }
 
 function compareResourceResults(a, b) {
-    var total = parseInt(a.totalPercent, 10);
-    var otherTotal = parseInt(b.totalPercent, 10);
+    const total = parseInt(a.totalPercent, 10);
+    const otherTotal = parseInt(b.totalPercent, 10);
     
     if(total < otherTotal) {
         return 1;
