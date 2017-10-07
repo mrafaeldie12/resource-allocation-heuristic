@@ -1,26 +1,15 @@
 module.exports.runHeuristic = function (startDate, endDate, skillsSeparatedByComma) {
-    const project = {
+    let project = {
         startDate: new Date(startDate),
         endDate: new Date(endDate),
         requiredCompetencies: skillsSeparatedByComma.split(",")
     };
 
-    console.log(project);
+    project.requiredCompetencies = trimSkills(project.requiredCompetencies);
 
     const resources = JSON.parse(window.localStorage.getItem('resources'));
 
     parseDatesFromResource(resources);
-
-    function parseDatesFromResource(resources) {
-        for (let i = 0; i < resources.length; i++) {
-            const resource = resources[i];
-
-            resource.allocations.forEach(function (allocation) {
-                allocation.startDate = new Date(allocation.startDate);
-                allocation.endDate = new Date(allocation.endDate);
-            });
-        }
-    }
 
     let resourcesWithMatchingPercentages = [];
 
@@ -43,10 +32,26 @@ module.exports.runHeuristic = function (startDate, endDate, skillsSeparatedByCom
         resourcesWithMatchingPercentages.push(resourceWithMatchingPercentage);
     }
 
-   
-
     return resourcesWithMatchingPercentages;
 };
+
+function trimSkills(skills) {
+    for(let i = 0; i < skills.length; i++) {
+        skills[i] = skills[i].trim();
+    }
+    return skills;
+}
+
+function parseDatesFromResource(resources) {
+    for (let i = 0; i < resources.length; i++) {
+        const resource = resources[i];
+
+        resource.allocations.forEach(function (allocation) {
+            allocation.startDate = new Date(allocation.startDate);
+            allocation.endDate = new Date(allocation.endDate);
+        });
+    }
+}
 
 function getCompetencyMatchForProjectPercentage(resource, project) {
     let missingCompetencies = getCompetenciesResourceHas(project.requiredCompetencies, resource.skills);
