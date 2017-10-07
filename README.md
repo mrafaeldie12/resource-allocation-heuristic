@@ -15,6 +15,11 @@ Trigger react-scripts live reload and Sass live recompiling
 npm start
 ```
 
+Test using jest
+```
+npm test
+```
+
 # Original Create React App Readme
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).

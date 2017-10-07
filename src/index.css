@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700|Open+Sans:400,700");
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #F4F4F4; }
+
+input {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  margin: 5px;
+  padding: 3px; }
+
+button {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  margin-top: 5px;
+  padding: 3px; }
+
+button {
+  padding: 5px; }
+
+h1 {
+  font-family: 'Libre Baskerville', serif;
+  text-align: center; }
+
+table {
+  border: 1px solid #BFB7B6;
+  background-color: #DEDEDE;
+  width: 100%; }
+
+table th {
+  border-bottom: 5px solid #BFB7B6;
+  background-color: #C8C8C8; }
+
+table tr:nth-child(odd) {
+  background-color: #F4F4F4; }
+
+table td {
+  padding: 5px; }
+
+.resource-table, .resource-allocation, .resource-allocations-table {
+  display: block;
+  margin: 0 25%;
+  justify-content: center;
+  padding: 10px; }
+
+.resource-name {
+  font-family: 'Libre Baskerville', serif; }
+
+.resource-skills span:last-child::after {
+  content: ""; }
+
+.resource-skills span::after {
+  content: ", "; }
