@@ -32,8 +32,23 @@ module.exports.runHeuristic = function (startDate, endDate, skillsSeparatedByCom
         resourcesWithMatchingPercentages.push(resourceWithMatchingPercentage);
     }
 
+    resourcesWithMatchingPercentages = resourcesWithMatchingPercentages.sort(compareResourceResults);
+
     return resourcesWithMatchingPercentages;
-};
+}
+
+function compareResourceResults(a, b) {
+    var total = parseInt(a.totalPercent, 10);
+    var otherTotal = parseInt(b.totalPercent, 10);
+    
+    if(total < otherTotal) {
+        return 1;
+    } else if(total > otherTotal){
+        return -1;
+    }
+    
+    return 0;
+}
 
 function trimSkills(skills) {
     for(let i = 0; i < skills.length; i++) {

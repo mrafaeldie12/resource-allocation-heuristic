@@ -13,6 +13,7 @@ class AutomaticResourceAllocation extends Component {
             endDate: moment().add(10, 'days').format('YYYY-MM-DD'),
             skillsSeparatedByComma: ''
         }
+        
         this.handleFind = this.handleFind.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
     }
@@ -22,9 +23,7 @@ class AutomaticResourceAllocation extends Component {
     }
 
     handleFind(event) {
-        let resourceHeuristicResults = this.runHeuristic()
-
-        resourceHeuristicResults = resourceHeuristicResults.sort((item, otherItem) => item.totalPercent > otherItem.totalPercent);
+        const resourceHeuristicResults = this.runHeuristic()
 
         this.setState({
             findPressed: true,
